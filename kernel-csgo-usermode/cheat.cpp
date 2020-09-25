@@ -14,11 +14,6 @@ void cheat::run()
 		if (client_base)
 		{
 			printf("[kernel-csgo]: client.dll found: 0x%x\n", client_base);
-		}
-		/*
-		if (client_base)
-		{
-			printf("[kernel-csgo]: client.dll found: 0x%x\n", client_base);
 			printf("[kernel-csgo]: Running...\n");
 
 			for (;;)
@@ -52,7 +47,6 @@ void cheat::run()
 		{
 			printf("[kernel-csgo]: Failed to obtain client.dll\n");
 		}
-		*/
 	}
 	else
 	{
