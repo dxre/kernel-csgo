@@ -4,7 +4,7 @@
 
 namespace driver_control
 {
-	ULONG get_client_base(ULONG process_id);
+	ULONG get_client_base(ULONG process_id, const wchar_t* module_name, size_t module_name_size);
 
 	template<typename t>
 	t read_memory(ULONG process_id, ULONG address);
@@ -39,5 +39,3 @@ namespace driver_control
 		hook::call_hook(&info);
 	}
 }
-
-

@@ -11,7 +11,7 @@ void dispatch::handler(void* info_struct)
 		{
 			KAPC_STATE apc;
 			KeStackAttachProcess(target_process, &apc);
-			ULONG b = memory::get_module_base(target_process, L"client.dll");
+			ULONG b = memory::get_module_base(target_process, info->module_name);//L"client.dll");
 			KeUnstackDetachProcess(&apc);
 			if (b) { info->client_base = b; }
 		}

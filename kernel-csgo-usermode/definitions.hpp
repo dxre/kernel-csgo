@@ -15,4 +15,5 @@ typedef struct _INFO_STRUCT
 	ULONG address;
 	ULONG buffer;
 	ULONG size;
+	wchar_t module_name[64];
 }INFO_STRUCT, * PINFO_STRUCT;

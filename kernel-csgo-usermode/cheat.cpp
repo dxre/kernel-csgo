@@ -2,13 +2,20 @@
 
 void cheat::run()
 {
+	const wchar_t module_name[] = L"client.dll";
+
 	printf("[kernel-csgo]: Looking for csgo.exe process...\n");
 	ULONG process_id = memory::get_process_id_by_name("csgo.exe");
 	if (process_id)
 	{
 		printf("[kernel-csgo]: Process identifier found: %d\n", process_id);
 		printf("[kernel-csgo]: Looking for client.dll...\n");
-		ULONG client_base = driver_control::get_client_base(process_id);
+		ULONG client_base = driver_control::get_client_base(process_id, module_name, sizeof(module_name));
+		if (client_base)
+		{
+			printf("[kernel-csgo]: client.dll found: 0x%x\n", client_base);
+		}
+		/*
 		if (client_base)
 		{
 			printf("[kernel-csgo]: client.dll found: 0x%x\n", client_base);
@@ -45,6 +52,7 @@ void cheat::run()
 		{
 			printf("[kernel-csgo]: Failed to obtain client.dll\n");
 		}
+		*/
 	}
 	else
 	{
